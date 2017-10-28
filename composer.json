@@ -1,0 +1,14 @@
+{
+  "name": "unisevilla/convenios",
+  "autoload": {
+    "psr-4": {
+      "UniSevilla\\Convenios\\": "class/"
+    }
+  },
+  "require": {
+    "adodb/adodb-php": "5.20.*",
+    "jasig/phpcas": "1.3.*",
+    "smarty/smarty": "~3.1",
+    "swiftmailer/swiftmailer": "@stable"
+  }
+}

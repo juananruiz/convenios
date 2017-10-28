@@ -1,0 +1,63 @@
+/* Basics */
+a {
+    color: maroon;
+}
+
+/* Navigation */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: maroon;
+    background: #fff;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(128, 0, 0, 1);
+}
+
+header.navbar a.navbar-brand {
+    padding: 1.8rem 5rem;
+    background-image: url('img/logo_recursos_humanos.png');
+    background-size: 150px auto;
+}
+
+header.navbar a.navbar-brand {
+    border-bottom: 0;
+}
+
+header.navbar {
+    height: 60px;
+    line-height: 60px;
+}
+
+.breadcrumb {
+    background-color: #f6f6f6;
+}
+
+/* Layout */
+
+/* Form and active elements */
+.btn-primary {
+    color: #fff;
+    background-color: rgba(128, 0, 0, 0.9);
+    border-color: maroon;
+}
+
+.btn-danger {
+    float: right !important;
+}
+
+.bg-primary {
+    background-color: rgba(128, 0, 0, 0.6) !important;
+}
+
+.btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+    background-color: rgba(128, 0, 0, 0.9);
+    background-image: none;
+    border-color: maroon;
+}
+
+.card.bg-primary {
+    background-color: rgba(128, 0, 0, 0.6);;
+}
