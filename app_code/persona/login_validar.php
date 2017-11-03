@@ -10,7 +10,7 @@ if (filter_has_var(INPUT_POST, 'correo') && filter_has_var(INPUT_POST, 'clave'))
     $clave = filter_input(INPUT_POST, 'clave', FILTER_SANITIZE_STRING);
     $condicion = "correo = '" . $correo . "' AND activo = 1";
     if ($persona->Load($condicion) AND password_verify($clave, $persona->clave)) {
-        $persona->ultimoInicioSesion = date('Y-m-d H:i:s');
+        $persona->ultimo_inicio_sesion = date('Y-m-d H:i:s');
         $persona->Save();
         $_SESSION['usuario'] = $persona;
 

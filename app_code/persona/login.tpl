@@ -12,7 +12,7 @@
                                 <p class="text-muted">{#AccessWithUserAndPassword#}</p>
                                 <div class="input-group mb-3">
                                     <span class="input-group-addon"><i class="icon-user"></i></span>
-                                    <input type="text" name="correo" class="form-control" placeholder="{#Mail#}">
+                                    <input name="correo" class="form-control" placeholder="{#Mail#}">
                                 </div>
                                 <div class="input-group mb-4">
                                     <span class="input-group-addon"><i class="icon-lock"></i></span>
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
-                                        <button type="submit" class="btn btn-primary px-4">{#Login#}</button>
+                                        <button class="btn btn-primary px-4">{#Login#}</button>
                                     </div>
                                     <div class="col-6 text-right">
                                         <button type="button" class="btn btn-link px-0">{#ForgotPassWord#}</button>
