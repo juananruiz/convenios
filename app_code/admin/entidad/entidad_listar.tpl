@@ -7,9 +7,9 @@
 {block name=contenido}
     <div class="col-sm-8">
         <div class="card-header">
-            <i class="fa fa-align-justify"></i> <strong>{#ConventionObjectList#}</strong>
-            <button href="index.php?page=admin/convenio/objeto_crear" type="button"
-                    class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewObject#}
+            <i class="fa fa-align-justify"></i> <strong>{#EntityList#}</strong>
+            <button href="index.php?page=admin/entidad/entidad_crear" type="button"
+                    class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewEntity#}
             </button>
         </div>
         <div class="card">
@@ -18,17 +18,19 @@
                 <tr>
                     <th>{#Id#}</th>
                     <th>{#Name#}</th>
-                    <th>{#CreatedAt#}</th>
+                    <th>{#Cif#}</th>
+                    <th>{#Type#}</th>
                 </tr>
                 </thead>
                 <tbody>
-                {foreach $objetos as $objeto}
+                {foreach $entidades as $entidad}
                     <tr>
                         <td><span class="tag tag-primary"><a
-                                        href="index.php?page=admin/convenio/objeto_editar&id={$objeto->id}">{$objeto->id}</a></span>
+                                        href="index.php?page=admin/entidad/entidad_editar&id={$entidad->id}">{$entidad->id}</a></span>
                         </td>
-                        <td>{$objeto->nombre}</td>
-                        <td>{$objeto->created_at}</td>
+                        <td>{$entidad->nombre}</td>
+                        <td>{$entidad->cif}</td>
+                        <td>{$entidad->id_tipo_entidad}</td>
                     </tr>
                 {/foreach}
                 </tbody>

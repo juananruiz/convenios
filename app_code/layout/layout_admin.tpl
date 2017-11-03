@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{#SiteDescription#}">
-    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
     <title>{#SiteName#} - {#OrganizationName#}</title>
     {block name=css}
         <link href="assets/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,19 +20,31 @@
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">☰</button>
         <a class="navbar-brand" href="index.php"></a>
+        <h1>{#SiteName#} - {#OrganizationName#}</h1>
     </header>
     <div class="app-body">
         <div class="sidebar">
             <nav class="sidebar-nav">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=admin/inicio"><i class="icon-speedometer"></i> Dashboard</a>
+                        <a class="nav-link" href="index.php?page=admin/convenio/convenio_listar"><i
+                                    class="icon-docs"></i>{#Conventions#}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php"><i class="icon-anchor"></i> Dashboard</a>
+                        <a class="nav-link" href="index.php?page=admin/entidad/entidad_listar"><i
+                                    class="icon-home"></i>{#Entities#}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php"><i class="icon-bag"></i> Dashboard</a>
+                        <a class="nav-link" href="index.php?page=admin/convenio/objeto_listar"><i
+                                    class="icon-basket-loaded"></i> {#Objects#}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=admin/convenio/formalizacion_listar"><i
+                                    class="icon-bag"></i> {#Formalisations#}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=admin/persona/persona_listar"><i
+                                    class="icon-people"></i> {#People#}</a>
                     </li>
                 </ul>
             </nav>

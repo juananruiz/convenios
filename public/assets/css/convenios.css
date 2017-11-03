@@ -3,6 +3,14 @@ a {
     color: maroon;
 }
 
+span.tag a {
+    color: white;
+}
+
+.tag-primary {
+    background-color: maroon;
+}
+
 /* Navigation */
 .sidebar {
     display: flex;
@@ -16,10 +24,23 @@ a {
     color: rgba(128, 0, 0, 1);
 }
 
-header.navbar a.navbar-brand {
-    padding: 1.8rem 5rem;
-    background-image: url('assets/img/logo_us_200.png');
-    background-size: 150px auto;
+.app-header.navbar .navbar-brand {
+    display: inline-block;
+    width: 155px;
+    height: 55px;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    background-color: #fff;
+    background-image: url("../img/logo_us.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 55px auto;
+    border-bottom: 1px solid #c2cfd6;
+}
+
+header h1 {
+    font-size: 1.3rem;
+    color: maroon;
 }
 
 header.navbar a.navbar-brand {
@@ -33,6 +54,19 @@ header.navbar {
 
 .breadcrumb {
     background-color: #f6f6f6;
+}
+
+.sidebar .nav {
+    background-color: lightgray;
+}
+
+.navbar .sidebar .dropdown-toggle, .sidebar .nav-link, .sidebar .navbar .dropdown-toggle {
+    color: maroon;
+}
+
+.navbar .sidebar .dropdown-toggle:hover, .sidebar .nav-link:hover, .sidebar .navbar .dropdown-toggle:hover {
+    color: #fff;
+    background: maroon;
 }
 
 .main .container-fluid {

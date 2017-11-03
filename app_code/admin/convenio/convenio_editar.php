@@ -34,6 +34,11 @@ if (filter_has_var(INPUT_GET, 'id')) {
         $marcos = $marco->Find("id != $id AND id_convenio_marco IS null");
         $app->smarty->assign('marcos', $marcos);
 
+        $responsable = new \UniSevilla\Convenios\Persona\Persona();
+        $responsables = $responsable->Find("id > 0");
+        $app->smarty->assign('responsables', $responsables);
+
+
     } else {
 
         header("location:index.php?page=error/error&text='Identificador no valido'");

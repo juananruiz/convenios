@@ -19,8 +19,6 @@
     <div class="modal-footer">{block name=modal-footer}{/block}</div>
 </div>
 
-{include file="layout/menu_publico.tpl"}
-
 {block name=contenido}{/block}
 
 <div class="divide40"></div>
