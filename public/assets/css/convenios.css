@@ -18,7 +18,7 @@ a {
 
 header.navbar a.navbar-brand {
     padding: 1.8rem 5rem;
-    background-image: url('img/logo_recursos_humanos.png');
+    background-image: url('assets/img/logo_us_200.png');
     background-size: 150px auto;
 }
 
@@ -33,6 +33,10 @@ header.navbar {
 
 .breadcrumb {
     background-color: #f6f6f6;
+}
+
+.main .container-fluid {
+    margin-top: 1.5rem;
 }
 
 /* Layout */
@@ -53,8 +57,7 @@ header.navbar {
 }
 
 .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
-    background-color: rgba(128, 0, 0, 0.9);
-    background-image: none;
+    background: rgba(128, 0, 0, 0.9) none;
     border-color: maroon;
 }
 

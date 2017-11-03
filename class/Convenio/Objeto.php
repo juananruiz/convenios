@@ -4,13 +4,15 @@ namespace UniSevilla\Convenios\Convenio;
 
 class Objeto extends \ADODB_Active_Record
 {
-/** @var  string */
-public $_table = 'ConvenioObjeto';
+    /** @var  string */
+    public $_table = 'ConvenioObjeto';
 
-/** @var  string */
-public $nombre;
+    /** @var  int */
+    public $id;
 
-/** @var  int */
-public $id;
+    /** @var  string */
+    public $nombre;
 
+    /** @var \DateTime */
+    public $created_at;
 }

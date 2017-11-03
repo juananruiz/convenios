@@ -17,6 +17,9 @@ class Convenio extends \ADODB_Active_Record
     /** @var Convenio */
     public $convenio_marco;
 
+    /** @var \DateTime */
+    public $created_at;
+
     /** @var  string */
     public $economica;
 
