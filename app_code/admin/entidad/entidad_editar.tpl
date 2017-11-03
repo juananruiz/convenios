@@ -8,7 +8,7 @@
     <div class="col-sm-8">
         <div class="card">
             <form method="post" action="index.php?page=admin/entidad/entidad_grabar">
-                <input type="hidden" name="id" value="{$objeto->id}">
+                <input type="hidden" name="id" value="{$entidad->id}">
                 <div class="card-header">
                     <strong>{#Entity#}</strong>
                     <small>{#Edit#}</small>

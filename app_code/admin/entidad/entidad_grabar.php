@@ -14,4 +14,7 @@ if (filter_has_var(INPUT_POST, 'id')) {
     $entidad->save();
 
     header("location:index.php?page=admin/entidad/entidad_listar");
+} else {
+
+    header("location:index.php?page=error/error&text='Se necesita un identificador'");
 }
