@@ -32,6 +32,10 @@
                                     {/foreach}
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label>{#CreatedAt#}</label>
+                                <input class="form-control" value="{$entidad->created_at}" disabled>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,6 +43,11 @@
                     <button class="btn btn-sm btn-primary">
                         <i class="fa fa-dot-circle-o"></i> {#Save#}
                     </button>
+                    <button class="btn btn-sm btn-warning float-right"
+                            href="index.php?page=admin/entidad/entidad_listar">
+                        <i class="fa fa-exit"></i> {#Cancel#}
+                    </button>
+
                 </div>
             </form>
         </div>

@@ -23,6 +23,14 @@
                         <input class="form-control" name="apellidos" value="{$persona->apellidos}">
                     </div>
                     <div class="form-group col-sm-12">
+                        <label for="id_rol">{#Rol#}</label>
+                        <select class="form-control" name="id_rol">
+                            {foreach $roles as $rol}
+                                <option value="{$rol->id}"{if $persona->id_rol == $rol->id} selected{/if}>{$rol->nombre}</option>
+                            {/foreach}
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12">
                         <label for="id_entidad">{#Entity#}</label>
                         <select class="form-control" name="id_entidad">
                             {foreach $entidades as $entidad}
@@ -56,9 +64,12 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-sm btn-primary">
-                        <i class="fa fa-dot-circle-o"></i> {#Save#}
-                    </button>
+                    <button class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> {#Save#}</button>
+                    <a class="btn btn-sm btn-info"
+                       href="index.php?page=admin/persona/clave_cambiar&id={$persona->id}"><i
+                                class="fa fa-key"></i> {#ChangePassword#}</a>
+                    <a class="btn btn-sm btn-warning float-right" href="index.php?page=admin/persona/persona_listar"><i
+                                class="fa fa-minus-circle"></i> {#Cancel#}</a>
                 </div>
             </form>
         </div>

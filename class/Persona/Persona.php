@@ -2,6 +2,8 @@
 
 namespace UniSevilla\Convenios\Persona;
 
+use UniSevilla\Convenios\Entidad\Entidad;
+
 class Persona extends \ADODB_Active_Record
 {
     /** @var string */
@@ -55,12 +57,40 @@ class Persona extends \ADODB_Active_Record
 
     /**
      * @param string $condicion
-     * @return Persona
+     * @return bool
      */
     public function LoadJoined($condicion)
     {
-        $this->Load($condicion);
+        if ($this->Load($condicion)) {
+            $this->entidad = new Entidad();
+            $this->entidad->Load("id = $this->id_entidad");
+            $this->rol = new Rol();
+            $this->rol->Load("id = $this->id_rol");
 
-        return $this;
+            return true;
+        }
+
+        return false;
     }
+
+    /**
+     * @param string $condicion
+     * @return Persona[]|bool
+     */
+    public function FindJoined($condicion)
+    {
+        if ($personas = $this->Find($condicion)) {
+            foreach ($personas as $persona) {
+                $persona->entidad = new Entidad();
+                $persona->entidad->Load("id = $persona->id_entidad");
+                $persona->rol = new Rol();
+                $persona->rol->Load("id = $persona->id_rol");
+            }
+
+            return $personas;
+        }
+
+        return false;
+    }
+
 }

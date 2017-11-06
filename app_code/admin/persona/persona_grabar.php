@@ -18,7 +18,8 @@ if (filter_has_var(INPUT_POST, 'id')) {
     $persona->telefono = filter_input(INPUT_POST, 'telefono', FILTER_SANITIZE_STRING);
     $persona->nif = filter_input(INPUT_POST, 'nif', FILTER_SANITIZE_STRING);
     $persona->id_entidad = filter_input(INPUT_POST, 'id_entidad', FILTER_SANITIZE_NUMBER_INT);
+    $persona->fecha_modificacion = date("Y-m-d H:i:s");
     $persona->save();
 
-    header("location:index.php?page=admin/persona/persona_editar&id=$persona->id");
+    header("location:index.php?page=admin/persona/persona_listar");
 }

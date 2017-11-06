@@ -8,9 +8,8 @@
     <div class="col-sm-12">
         <div class="card-header">
             <i class="fa fa-align-justify"></i> <strong>{#PeopleList#}</strong>
-            <button href="index.php?page=admin/persona/persona_crear" type="button"
-                    class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewPerson#}
-            </button>
+            <a href="index.php?page=admin/persona/persona_crear"
+               class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewPerson#}</a>
         </div>
         <div class="card">
             <table class="table table-striped">
@@ -31,12 +30,14 @@
                         <td><span class="tag tag-primary"><a
                                         href="index.php?page=admin/persona/persona_editar&id={$persona->id}">{$persona->id}</a></span>
                         </td>
-                        <td>{$persona->nombre} {$persona->apellidos}</td>
+                        <td>
+                            <a href="index.php?page=admin/persona/persona_editar&id={$persona->id}">{$persona->nombre} {$persona->apellidos}</a>
+                        </td>
                         <td>{$persona->correo}</td>
-                        <td>{$persona->id_rol}</td>
+                        <td><i class="fa {$persona->rol->icono}"></i></td>
                         <td>{$persona->destino}</td>
-                        <td>{$persona->id_entidad}</td>
-                        <td>{$persona->ultimo_inicio_sesion}</td>
+                        <td>{$persona->entidad->nombre}</td>
+                        <td>{$persona->ultimo_inicio_sesion|date_format:"d/m/Y H:i:s"}</td>
                     </tr>
                 {/foreach}
                 </tbody>

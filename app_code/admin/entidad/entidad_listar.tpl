@@ -8,9 +8,8 @@
     <div class="col-sm-8">
         <div class="card-header">
             <i class="fa fa-align-justify"></i> <strong>{#EntityList#}</strong>
-            <button href="index.php?page=admin/entidad/entidad_crear" type="button"
-                    class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewEntity#}
-            </button>
+            <a href="index.php?page=admin/entidad/entidad_crear"
+               class="btn btn-mary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewEntity#}</a>
         </div>
         <div class="card">
             <table class="table table-striped">

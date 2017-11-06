@@ -76,6 +76,12 @@ header.navbar {
 /* Layout */
 
 /* Form and active elements */
+a.btn-mary {
+    color: #fff;
+    background-color: rgba(128, 0, 0, 0.9);
+    border-color: maroon;
+}
+
 .btn-primary {
     color: #fff;
     background-color: rgba(128, 0, 0, 0.9);

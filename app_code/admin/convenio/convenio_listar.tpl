@@ -8,9 +8,8 @@
     <div class="col-sm-12">
         <div class="card-header">
             <i class="fa fa-align-justify"></i> <strong>{#ConventionList#}</strong>
-            <button href="index.php?page=admin/convenio/objeto_crear" type="button"
-                    class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewConvention#}
-            </button>
+            <a href="index.php?page=admin/convenio/objeto_crear"
+               class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewConvention#}</a>
         </div>
         <div class="card">
             <table class="table table-striped">

@@ -12,6 +12,9 @@ class Entidad extends \ADODB_Active_Record
     /** @var  string */
     public $cif;
 
+    /** @var \DateTime */
+    public $created_at;
+
     /** @var  int */
     public $id;
 
