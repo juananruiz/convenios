@@ -140,10 +140,10 @@ class Convenio extends \ADODB_Active_Record
                 if ($estado->Load("id = $registro->id_estado")) {
                     $registro->estado = $estado;
                 }
-                $convenio = new Convenio();
+                $convenio_marco = new Convenio();
                 if ($registro->id_convenio_marco
-                    && $convenio->Load("id = $registro->id_convenio_marco")) {
-                    $registro->convenio_marco = $convenio;
+                    && $convenio_marco->Load("id = $registro->id_convenio_marco")) {
+                    $registro->convenio_marco = $convenio_marco;
                 }
                 $persona = new Persona();
                 if ($persona->Load("id = $registro->id_responsable")) {

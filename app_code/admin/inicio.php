@@ -2,6 +2,8 @@
 
 global $app;
 
-$persona= new UniSevilla\Convenios\Persona\Persona();
-$personas = $persona->Find("WHERE nombre IS NOT NULL ORDER BY nombre");
-$app->smarty->assign('personas', $personas);
+use UniSevilla\Convenios\Convenio\Convenio;
+
+$convenio = new Convenio();
+$convenios = $convenio->Find("id > 0");
+$app->smarty->assign('convenios', $convenios);

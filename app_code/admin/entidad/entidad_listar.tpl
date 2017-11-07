@@ -29,7 +29,7 @@
                         </td>
                         <td>{$entidad->nombre}</td>
                         <td>{$entidad->cif}</td>
-                        <td>{$entidad->id_tipo_entidad}</td>
+                        <td>{$entidad->tipo->nombre}</td>
                     </tr>
                 {/foreach}
                 </tbody>

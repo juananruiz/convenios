@@ -8,7 +8,7 @@ if (filter_has_var(INPUT_POST, 'correo') && filter_has_var(INPUT_POST, 'clave'))
     $persona = new Persona();
     $correo = filter_input(INPUT_POST, 'correo', FILTER_SANITIZE_EMAIL);
     $clave = filter_input(INPUT_POST, 'clave', FILTER_SANITIZE_STRING);
-    $condicion = "correo = '" . $correo . "' AND activo = 1";
+    $condicion = "correo = '" . $correo . "' AND id_rol > 1";
     if ($persona->Load($condicion) AND password_verify($clave, $persona->clave)) {
         $persona->ultimo_inicio_sesion = date('Y-m-d H:i:s');
         $persona->Save();

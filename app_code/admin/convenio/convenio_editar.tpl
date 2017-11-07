@@ -21,7 +21,7 @@
                     <div class="form-group col-sm-12">
                         <label for="id_convenio_marco">{#FrameworkConvention#}</label>
                         <select class="form-control" name="id_convenio_marco">
-                            <option value="">Sin convenio marco</option>
+                            <option value="">{#WithoutFrameworkConvention#}</option>
                             {foreach $marcos as $marco}
                                 <option value="{$marco->id}" {if
                                 $convenio->id_convenio_marco == $marco->id}selected{/if}>{$marco->titulo}</option>
@@ -31,6 +31,7 @@
                     <div class="form-group col-sm-12">
                         <label for="id_responsable">{#Responsible#}</label>
                         <select class="form-control" name="id_responsable">
+                            <option value="">{#SelectResponsible#}</option>
                             {foreach $responsables as $persona}
                                 <option value="{$persona->id}" {if
                                 $convenio->id_responsable == $persona->id}selected{/if}>{$persona->apellidos},
@@ -41,6 +42,7 @@
                     <div class="form-group col-sm-6">
                         <label for="id_objeto">{#Object#}</label>
                         <select class="form-control" name="id_objeto">
+                            <option value="">{#WithoutObject#}</option>
                             {foreach $objetos as $objeto}
                                 <option value="{$objeto->id}" {if
                                 $convenio->id_objeto == $objeto->id}selected{/if}>{$objeto->nombre}</option>
@@ -50,6 +52,7 @@
                     <div class="form-group col-sm-6">
                         <label for="id_formalizacion">{#Formalisation#}</label>
                         <select class="form-control" name="id_formalizacion">
+                            <option value="">{#WithoutFormalisation#}</option>
                             {foreach $formalizaciones as $formalizacion}
                                 <option value="{$formalizacion->id}" {if
                                 $convenio->id_formalizacion == $formalizacion->id}selected{/if}>{$formalizacion->nombre}</option>
@@ -84,6 +87,7 @@
                     <div class="form-group col-sm-6">
                         <label for="es_prorrogable">{#Renewable#}</label>
                         <select class="form-control" name="es_prorrogable">
+                            <option value="">{#SelectIfRenewable#}</option>
                             <option value="0"{if !$convenio->es_prorrogable} selected{/if}>No</option>
                             <option value="1"{if $convenio->es_prorrogable} selected{/if}>Sí</option>
                         </select>
@@ -91,6 +95,7 @@
                     <div class="form-group col-sm-6">
                         <label for="id_estado">{#Status#}</label>
                         <select class="form-control" name="id_estado">
+                            <option value="">{#SelectStatus#}</option>
                             {foreach $estados as $estado}
                                 <option value="{$estado->id}" {if
                                 $convenio->id_estado == $estado->id}selected{/if}>{$estado->nombre}</option>

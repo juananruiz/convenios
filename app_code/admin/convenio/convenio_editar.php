@@ -31,7 +31,7 @@ if (filter_has_var(INPUT_GET, 'id')) {
         $app->smarty->assign('tipos_entidades', $tipos_entidades);
 
         $marco = new Convenio();
-        $marcos = $marco->Find("id != $id AND id_convenio_marco IS null");
+        $marcos = $marco->Find("id != $id AND id_convenio_marco =''");
         $app->smarty->assign('marcos', $marcos);
 
         $responsable = new \UniSevilla\Convenios\Persona\Persona();
