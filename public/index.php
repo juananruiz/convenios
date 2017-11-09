@@ -10,7 +10,6 @@ require_once __DIR__ . '/../app_config.php';
 require_once('../vendor/adodb/adodb-php/adodb-active-record.inc.php');
 include("../vendor/adodb/adodb-php/adodb-exceptions.inc.php");
 
-
 use UniSevilla\Convenios\App;
 use UniSevilla\Convenios\Persona\Persona;
 
@@ -49,14 +48,11 @@ if (isset($_SESSION['usuario'])) {
     $app->usuario->Load($condicion);
     $app->smarty->assign('_usuario', $app->usuario);
 }
-else {
-    $page = 'login';
-}
 
-//if (strpos($app->page, 'admin') === 0 AND !isset($_SESSION['usuario'])) {
-//    header("location:index.php?page=persona/login");
-//    exit();
-//}
+if (strpos($app->page, 'admin') === 0 AND !isset($_SESSION['usuario'])) {
+    header("location:index.php?page=persona/login");
+    exit();
+}
 
 // Carga la página solicitada ($_GET['page']) o la pagina por defecto ('inicio' en nuestro caso)
 if (file_exists("../app_code/" . $app->page . ".php")) {

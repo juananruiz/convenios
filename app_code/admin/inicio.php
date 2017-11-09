@@ -1,9 +1,3 @@
 <?php
 
-global $app;
-
-use UniSevilla\Convenios\Convenio\Convenio;
-
-$convenio = new Convenio();
-$convenios = $convenio->Find("id > 0");
-$app->smarty->assign('convenios', $convenios);
+header("location:index.php?page=admin/convenio/convenio_listar");

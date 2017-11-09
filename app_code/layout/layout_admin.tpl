@@ -21,6 +21,7 @@
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">☰</button>
         <a class="navbar-brand" href="index.php"></a>
         <h1>{#SiteName#} - {#OrganizationName#}</h1>
+        <div class="float-left">{$_usuario->nombre} - <a href="index.php?page=persona/logout">{#Logout#}</a></div>
     </header>
     <div class="app-body">
         <div class="sidebar">

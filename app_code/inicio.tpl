@@ -9,85 +9,37 @@
 {/block}
 
 {block name=contenido}
-    <div id="ui-view" style="opacity: 1;">
-        <div class="animated fadeIn">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>Options</strong>
-                        </div>
-                        <div class="card-body">
-                            {foreach $roles as $rol}
-                                <li>{$rol->descripcion}</li>
-                            {/foreach}
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>{#People#}</strong>
-                        </div>
-                        <div class="card-body">
-                            {foreach $personas as $persona}
-                                <li>{$persona->nombre} {$persona->apellidos} {$persona->correo} {$persona->clave}</li>
-                            {/foreach}
-                        </div>
-                    </div>
-                </div>
-                <!--/.col-->
-
-                <div class="col-md-6">
-
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>Options</strong>
-                        </div>
-                        <div class="card-body">
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <button type="button" class="btn btn-outline-primary">Primary</button>
-
-                            <!-- Secondary, outline button -->
-                            <button type="button" class="btn btn-outline-secondary">Secondary</button>
-
-                            <!-- Indicates a successful or positive action -->
-                            <button type="button" class="btn btn-outline-success">Success</button>
-
-                            <!-- Indicates caution should be taken with this action -->
-                            <button type="button" class="btn btn-outline-warning">Warning</button>
-
-                            <!-- Indicates a dangerous or potentially negative action -->
-                            <button type="button" class="btn btn-outline-danger">Danger</button>
-
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>With Icons</strong>
-                        </div>
-                        <div class="card-body">
-                            <button type="button" class="btn btn-outline-primary"><i class="fa fa-star"></i>&nbsp;
-                                Primary
-                            </button>
-                            <button type="button" class="btn btn-outline-secondary"><i class="fa fa-lightbulb-o"></i>&nbsp;
-                                Secondary
-                            </button>
-                            <button type="button" class="btn btn-outline-success"><i class="fa fa-magic"></i>&nbsp;
-                                Success
-                            </button>
-                            <button type="button" class="btn btn-outline-warning"><i class="fa fa-map-marker"></i>&nbsp;
-                                Warning
-                            </button>
-                            <button type="button" class="btn btn-outline-danger"><i class="fa fa-rss"></i>&nbsp; Danger
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <!--/.col-->
-            </div>
-            <!--/.row-->
+    <div class="card">
+        <div class="card-header">
+            <strong>{#ConventionList#}</strong>
+            <form class="form form-inline float-right" method="post" action="index.php?page=inicio">
+                <input name="busqueda">
+                <button><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{#Period#}</th>
+                    <th>{#Title#}</th>
+                    <th>{#Status#}</th>
+                    <th>{#SignatureDate#}</th>
+                    <th>{#EndDate#}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $convenios as $convenio}
+                    <tr>
+                        <td>{$convenio->ejercicio}</td>
+                        <td><a href="index.php?page=convenio_mostrar&id={$convenio->id}">{$convenio->titulo}</a></td>
+                        <td>{$convenio->estado}</td>
+                        <td>{$convenio->fecha_firma}</td>
+                        <td>{$convenio->fecha_fin}</td>
+                    </tr>
+                {/foreach}
+                </tbody>
+            </table>
         </div>
     </div>
 {/block}

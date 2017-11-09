@@ -2,14 +2,15 @@
 
 global $app;
 
-use UniSevilla\Convenios\Persona\Persona;
-use UniSevilla\Convenios\Persona\Rol;
+use UniSevilla\Convenios\Convenio\Convenio;
 
-$rol = new Rol();
-$roles = $rol->Find("id > 0");
-$app->smarty->assign('roles', $roles);
+if (filter_has_var(INPUT_POST, "busqueda")) {
+    $busqueda = filter_input_array(INPUT_POST, "busqueda", FILTER_SANITIZE_STRING);
+    $condicion = "titulo LIKE '%$busqueda%'";;
+} else {
+    $condicion = "id > 0";
+}
 
-
-$persona = new Persona();
-$personas = $persona->Find("id > 0");
-$app->smarty->assign('personas', $personas);
+$convenio = new Convenio();
+$convenios = $convenio->Find($condicion);
+$app->smarty->assign('convenios', $convenios);
