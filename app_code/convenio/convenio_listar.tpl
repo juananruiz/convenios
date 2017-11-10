@@ -12,9 +12,9 @@
     <div class="card">
         <div class="card-header">
             <strong>{#ConventionList#}</strong>
-            <form class="form form-inline float-right" method="post" action="index.php?page=inicio">
+            <form class="form form-inline float-right" method="post" action="index.php?page=convenio/convenio_listar">
                 <input name="busqueda">
-                <button><i class="fa fa-search"></i></button>
+                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
         <div class="card-body">
@@ -34,8 +34,8 @@
                         <td>{$convenio->ejercicio}</td>
                         <td><a href="index.php?page=convenio_mostrar&id={$convenio->id}">{$convenio->titulo}</a></td>
                         <td>{$convenio->estado}</td>
-                        <td>{$convenio->fecha_firma}</td>
-                        <td>{$convenio->fecha_fin}</td>
+                        <td>{$convenio->fecha_firma|date_format:"d-m-Y"}</td>
+                        <td>{$convenio->fecha_fin|date_format:"d-m-Y"}</td>
                     </tr>
                 {/foreach}
                 </tbody>

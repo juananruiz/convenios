@@ -24,6 +24,10 @@ span.tag a {
     color: rgba(128, 0, 0, 1);
 }
 
+.sidebar .nav-title {
+    color: #000;
+}
+
 .app-header.navbar .navbar-brand {
     display: inline-block;
     width: 155px;

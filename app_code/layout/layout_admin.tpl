@@ -26,7 +26,9 @@
     <div class="app-body">
         <div class="sidebar">
             <nav class="sidebar-nav">
+
                 <ul class="nav">
+                    <li class="nav-title">Consulta</li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=admin/convenio/convenio_listar"><i
                                     class="icon-docs"></i>{#Conventions#}</a>
@@ -36,16 +38,31 @@
                                     class="icon-home"></i>{#Entities#}</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=admin/persona/persona_listar"><i
+                                    class="icon-people"></i> {#People#}</a>
+                    </li>
+
+                    <li class="nav-divider"></li>
+                    <li class="nav-title">Edición</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=admin/convenio/convenio_listar"><i
+                                    class="icon-docs"></i>{#Conventions#}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=admin/entidad/entidad_listar"><i
+                                    class="icon-home"></i>{#Entities#}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?page=admin/persona/persona_listar"><i
+                                    class="icon-people"></i> {#People#}</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php?page=admin/convenio/objeto_listar"><i
                                     class="icon-basket-loaded"></i> {#Objects#}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=admin/convenio/formalizacion_listar"><i
                                     class="icon-bag"></i> {#Formalisations#}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=admin/persona/persona_listar"><i
-                                    class="icon-people"></i> {#People#}</a>
                     </li>
                 </ul>
             </nav>
