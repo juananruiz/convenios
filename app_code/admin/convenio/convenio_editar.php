@@ -4,7 +4,7 @@ global $app;
 
 use UniSevilla\Convenios\Convenio\Convenio;
 use UniSevilla\Convenios\Convenio\Estado;
-use UniSevilla\Convenios\Convenio\Formalizacion;
+use UniSevilla\Convenios\Convenio\Forma;
 use UniSevilla\Convenios\Convenio\Objeto;
 use UniSevilla\Convenios\Entidad\Tipo;
 
@@ -14,9 +14,9 @@ if (filter_has_var(INPUT_GET, 'id')) {
     if ($convenio->Load("id=$id")){
         $app->smarty->assign('convenio', $convenio);
 
-        $formalizacion = new Formalizacion();
-        $formalizaciones = $formalizacion->Find("id > 0");
-        $app->smarty->assign('formalizaciones', $formalizaciones);
+        $forma = new Forma();
+        $formas = $forma->Find("id > 0");
+        $app->smarty->assign('formas', $formas);
 
         $objeto = new Objeto();
         $objetos = $objeto->Find("id > 0");

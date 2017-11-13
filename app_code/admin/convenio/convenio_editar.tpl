@@ -10,13 +10,12 @@
             <form method="post" action="index.php?page=admin/convenio/convenio_grabar">
                 <input type="hidden" name="id" value="{$convenio->id}">
                 <div class="card-header">
-                    <strong>{#Convention#}</strong>
-                    <small>{#Edit#}</small>
+                    <span class="card-title">{#ConventionEdit#}</span>
                 </div>
                 <div class="card-block">
                     <div class="form-group col-sm-12">
                         <label for="titulo">{#Title#}</label>
-                        <input class="form-control" name="titulo" value="{$convenio->titulo}">
+                        <textarea class="form-control" name="titulo">{$convenio->titulo}</textarea>
                     </div>
                     <div class="form-group col-sm-12">
                         <label for="id_convenio_marco">{#FrameworkConvention#}</label>
@@ -50,12 +49,12 @@
                         </select>
                     </div>
                     <div class="form-group col-sm-6">
-                        <label for="id_formalizacion">{#Formalisation#}</label>
-                        <select class="form-control" name="id_formalizacion">
+                        <label for="id_forma">{#Formalisation#}</label>
+                        <select class="form-control" name="id_forma">
                             <option value="">{#WithoutFormalisation#}</option>
-                            {foreach $formalizaciones as $formalizacion}
-                                <option value="{$formalizacion->id}" {if
-                                $convenio->id_formalizacion == $formalizacion->id}selected{/if}>{$formalizacion->nombre}</option>
+                            {foreach $formas as $forma}
+                                <option value="{$forma->id}" {if
+                                $convenio->id_forma == $forma->id}selected{/if}>{$forma->nombre}</option>
                             {/foreach}
                         </select>
                     </div>

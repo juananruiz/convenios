@@ -108,3 +108,18 @@ a.btn-mary {
 .card.bg-primary {
     background-color: rgba(128, 0, 0, 0.6);;
 }
+
+.section-title {
+    color: maroon;
+}
+
+.section {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 1em;
+    margin-bottom: 1.5rem !important;
+}
+
+.card-title {
+    font-size: larger;
+    font-weight: 500;
+}

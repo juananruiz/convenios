@@ -2,6 +2,7 @@
 
 namespace UniSevilla\Convenios\Convenio;
 
+use UniSevilla\Convenios\Entidad\Entidad;
 use UniSevilla\Convenios\Entidad\Tipo;
 use UniSevilla\Convenios\Persona\Persona;
 
@@ -26,6 +27,9 @@ class Convenio extends \ADODB_Active_Record
     /** @var  int */
     public $ejercicio;
 
+    /** @var Entidad[] */
+    public $entidades;
+
     /** @var bool */
     public $es_ingreso;
 
@@ -44,8 +48,8 @@ class Convenio extends \ADODB_Active_Record
     /** @var  \DateTime */
     public $fecha_firma;
 
-    /** @var Formalizacion */
-    public $formalizacion;
+    /** @var Forma */
+    public $forma;
 
     /** @var  int */
     public $id_convenio_marco;
@@ -54,7 +58,7 @@ class Convenio extends \ADODB_Active_Record
     public $id_estado;
 
     /** @var  int */
-    public $id_formalizacion;
+    public $id_forma;
 
     /** @var  int */
     public $id_objeto;
@@ -91,13 +95,13 @@ class Convenio extends \ADODB_Active_Record
     {
         if ($this->Load($condicion)) {
             $estado = new Estado();
-            if($estado->Load("id = $this->id_estado")){
+            if ($estado->Load("id = $this->id_estado")) {
                 $this->estado = $estado;
             }
 
-            $formalizacion = new Formalizacion();
-            if ($formalizacion->Load("id = $this->id_formalizacion")) {
-                $this->formalizacion = $formalizacion;
+            $forma = new Forma();
+            if ($forma->Load("id = $this->id_forma")) {
+                $this->forma = $forma;
             }
 
             $objeto = new Objeto();
@@ -105,19 +109,23 @@ class Convenio extends \ADODB_Active_Record
                 $this->objeto = $objeto;
             }
 
+            $this->getEntidades();
+
             $responsable = new Persona();
             if ($responsable->Load("id = $this->id_responsable")) {
                 $this->responsable = $responsable;
             }
 
             $tipo_entidad = new Tipo();
-            if ($tipo_entidad->Load("id = $this->tipo_entidad")) {
+            if ($tipo_entidad->Load("id = $this->id_tipo_entidad")) {
                 $this->tipo_entidad = $tipo_entidad;
             }
 
-            $convenio_marco = new Convenio();
-            if ($convenio_marco->Load("id = $this->id_convenio_marco")) {
-                $this->convenio_marco = $convenio_marco;
+            if ($this->id_convenio_marco > 0) {
+                $convenio_marco = new Convenio();
+                if ($convenio_marco->Load("id = $this->id_convenio_marco")) {
+                    $this->convenio_marco = $convenio_marco;
+                }
             }
 
             return true;
@@ -151,7 +159,7 @@ class Convenio extends \ADODB_Active_Record
                 }
 
                 $tipo_entidad = new Tipo();
-                if ($tipo_entidad->Load("id = $registro->tipo_entidad")) {
+                if ($tipo_entidad->Load("id = $registro->id_tipo_entidad")) {
                     $registro->tipo_entidad = $tipo_entidad;
                 }
             }
@@ -163,5 +171,25 @@ class Convenio extends \ADODB_Active_Record
         }
     }
 
+    /**
+     * @return Convenio[]|bool
+     */
+    public function FindChildren()
+    {
+        $convenios = $this->Find("id_convenio_marco = $this->id ORDER BY fecha_firma");
+
+        return $convenios;
+    }
+
+    public function getEntidades()
+    {
+        $convenio_entidad = new ConvenioEntidad();
+        $convenios_entidades = $convenio_entidad->Find("id_convenio = $this->id");
+        foreach ($convenios_entidades as $convenio_entidad) {
+            $entidad = new Entidad();
+            $entidad->LoadJoined("id = $convenio_entidad->id_entidad");
+            $this->entidades[] = $entidad;
+        }
+    }
 
 }

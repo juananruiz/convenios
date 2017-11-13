@@ -5,13 +5,13 @@
 {/block}
 
 {block name=contenido}
-    <div class="col-sm-12">
+    <div class="card">
         <div class="card-header">
             <i class="fa fa-align-justify"></i> <strong>{#ConventionList#}</strong>
             <a href="index.php?page=admin/convenio/convenio_crear"
                class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewConvention#}</a>
         </div>
-        <div class="card">
+        <div class="card-body">
             <table class="table table-striped">
                 <thead>
                 <tr>

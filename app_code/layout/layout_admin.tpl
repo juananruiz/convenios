@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="{#SiteDescription#}">
     <link rel="shortcut icon" href="favicon.ico">
-    <title>{#SiteName#} - {#OrganizationName#}</title>
+    <title>{#SiteTitle#} - {#SiteOrganization#}</title>
     {block name=css}
         <link href="assets/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
@@ -20,8 +20,22 @@
     <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none mr-auto" type="button">☰</button>
         <a class="navbar-brand" href="index.php"></a>
-        <h1>{#SiteName#} - {#OrganizationName#}</h1>
-        <div class="float-left">{$_usuario->nombre} - <a href="index.php?page=persona/logout">{#Logout#}</a></div>
+        <h1>{#SiteTitle#}</h1>
+        <ul class="nav navbar-nav float-xs-right hidden-md-down">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-haspopup="true"
+                   aria-expanded="false">
+                    <img src="assets/img/{$_usuario->sexo}.png" class="img-avatar" alt="">
+                    <span class="hidden-md-down">{$_usuario->nombre}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="index.php?page=admin/persona/persona_editar&id={$_usuario->id}"><i
+                                class="fa fa-user"></i> {#Profile#}</a>
+                    <a class="dropdown-item" href="index.php?page=login/logout"><i class="fa fa-lock"></i> {#Logout#}
+                    </a>
+                </div>
+            </li>
+        </ul>
     </header>
     <div class="app-body">
         <div class="sidebar">
@@ -30,15 +44,15 @@
                 <ul class="nav">
                     <li class="nav-title">Consulta</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=admin/convenio/convenio_listar"><i
+                        <a class="nav-link" href="index.php?page=convenio/convenio_listar"><i
                                     class="icon-docs"></i>{#Conventions#}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=admin/entidad/entidad_listar"><i
+                        <a class="nav-link" href="index.php?page=entidad/entidad_listar"><i
                                     class="icon-home"></i>{#Entities#}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=admin/persona/persona_listar"><i
+                        <a class="nav-link" href="index.php?page=persona/persona_listar"><i
                                     class="icon-people"></i> {#People#}</a>
                     </li>
 
@@ -61,7 +75,7 @@
                                     class="icon-basket-loaded"></i> {#Objects#}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?page=admin/convenio/formalizacion_listar"><i
+                        <a class="nav-link" href="index.php?page=admin/convenio/forma_listar"><i
                                     class="icon-bag"></i> {#Formalisations#}</a>
                     </li>
                 </ul>

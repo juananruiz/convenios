@@ -49,8 +49,9 @@ if (isset($_SESSION['usuario'])) {
     $app->smarty->assign('_usuario', $app->usuario);
 }
 
-if (strpos($app->page, 'admin') === 0 AND !isset($_SESSION['usuario'])) {
-    header("location:index.php?page=persona/login");
+//if (strpos($app->page, 'admin') === 0 AND !isset($_SESSION['usuario'])) {
+if (strpos($app->page, 'login') !== 0 AND !isset($_SESSION['usuario'])) {
+    header("location:index.php?page=login/login");
     exit();
 }
 

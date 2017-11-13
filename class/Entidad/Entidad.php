@@ -30,6 +30,22 @@ class Entidad extends \ADODB_Active_Record
 
     /**
      * @param string $condicion
+     * @return bool
+     */
+    public function LoadJoined($condicion)
+    {
+        if ($this->Load($condicion)) {
+            $this->tipo = new Tipo();
+            $this->tipo->Load("id = $this->id_tipo_entidad");
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param string $condicion
      * @return Entidad[]|bool
      */
     public function FindJoined($condicion)

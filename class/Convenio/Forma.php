@@ -2,7 +2,7 @@
 
 namespace UniSevilla\Convenios\Convenio;
 
-class Formalizacion extends \ADODB_Active_Record
+class Forma extends \ADODB_Active_Record
 {
     /** @var  string */
     public $_table = 'ConvenioFormalizacion';

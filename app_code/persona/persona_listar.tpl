@@ -5,7 +5,7 @@
 {/block}
 
 {block name=contenido}
-    <div class="col-sm-12">
+    <div class="card">
         <div class="card-header">
             <i class="fa fa-align-justify"></i> <strong>{#PeopleList#}</strong>
             <form class="form form-inline float-right" method="post" action="index.php?page=persona/persona_listar">
@@ -13,7 +13,7 @@
                 <button><i class="fa fa-search"></i></button>
             </form>
         </div>
-        <div class="card">
+        <div class="card-body">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -29,7 +29,7 @@
                 {foreach $personas as $persona}
                     <tr>
                         <td>
-                            <a href="index.php?page=persona/persona_mostrar&id={$persona->id}">{$persona->nombre} {$persona->apellidos}</a>
+                            <a href="#">{$persona->nombre} {$persona->apellidos}</a>
                         </td>
                         <td>{$persona->correo}</td>
                         <td><i class="fa {$persona->rol->icono}"></i></td>

@@ -18,7 +18,7 @@ if (filter_has_var(INPUT_POST, 'id')) {
     $convenio->fecha_fin = filter_input(INPUT_POST, 'fecha_fin', FILTER_SANITIZE_STRING);
     $convenio->ejercicio = filter_input(INPUT_POST, 'ejercicio', FILTER_SANITIZE_STRING);
     $convenio->fecha_firma = filter_input(INPUT_POST, 'fecha_firma', FILTER_SANITIZE_STRING);
-    $convenio->id_formalizacion = filter_input(INPUT_POST, 'id_formalizacion', FILTER_SANITIZE_NUMBER_INT);
+    $convenio->id_forma = filter_input(INPUT_POST, 'id_forma', FILTER_SANITIZE_NUMBER_INT);
     $convenio->id_estado = filter_input(INPUT_POST, 'id_estado', FILTER_SANITIZE_NUMBER_INT);
     $convenio->id_objeto = filter_input(INPUT_POST, 'id_objeto', FILTER_SANITIZE_NUMBER_INT);
     $convenio->id_tipo_entidad = filter_input(INPUT_POST, 'id_tipo_entidad', FILTER_SANITIZE_NUMBER_INT);
@@ -26,5 +26,5 @@ if (filter_has_var(INPUT_POST, 'id')) {
     $convenio->id_convenio_marco = filter_input(INPUT_POST, 'id_convenio_marco', FILTER_SANITIZE_NUMBER_INT);
     $convenio->save();
 
-    header("location:index.php?page=admin/convenio/convenio_editar&id=$convenio->id");
+    header("location:index.php?page=convenio/convenio_mostrar&id=$convenio->id");
 }

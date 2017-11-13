@@ -7,7 +7,7 @@
                 <div class="card-group mb-0">
                     <div class="card p-4">
                         <div class="card-body">
-                            <form method="POST" action="index.php?page=persona/login_validar">
+                            <form method="POST" action="index.php?page=login/login_validar">
                                 <h1>{#Access#}</h1>
                                 <p class="text-muted">{#AccessWithUserAndPassword#}</p>
                                 <div class="input-group mb-3">

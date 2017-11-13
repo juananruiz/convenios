@@ -14,5 +14,5 @@ if (filter_has_var(INPUT_POST, "busqueda")) {
 $condicion .= " ORDER BY fecha_firma DESC";
 
 $convenio = new Convenio();
-$convenios = $convenio->Find($condicion);
+$convenios = $convenio->FindJoined($condicion);
 $app->smarty->assign('convenios', $convenios);

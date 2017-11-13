@@ -7,15 +7,16 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <i class="fa fa-align-justify"></i> <strong>{#EntityList#}</strong>
-            <a href="index.php?page=admin/entidad/entidad_crear"
-               class="btn btn-mary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewEntity#}</a>
+            <span class="card-title"><i class="fa fa-align-justify"></i> {#EntityList#}</span>
+            <form class="form form-inline float-right" method="post" action="index.php?page=entidad/entidad_listar">
+                <input name="busqueda">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>{#Id#}</th>
                     <th>{#Name#}</th>
                     <th>{#Cif#}</th>
                     <th>{#Type#}</th>
@@ -24,10 +25,7 @@
                 <tbody>
                 {foreach $entidades as $entidad}
                     <tr>
-                        <td><span class="tag tag-primary"><a
-                                        href="index.php?page=admin/entidad/entidad_editar&id={$entidad->id}">{$entidad->id}</a></span>
-                        </td>
-                        <td>{$entidad->nombre}</td>
+                        <td><a href="#">{$entidad->nombre}</a></td>
                         <td>{$entidad->cif}</td>
                         <td>{$entidad->tipo->nombre}</td>
                     </tr>
