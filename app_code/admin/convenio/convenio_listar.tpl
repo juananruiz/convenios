@@ -7,7 +7,11 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <i class="fa fa-align-justify"></i> <strong>{#ConventionList#}</strong>
+            <span class="card-title"><i class="fa fa-align-justify"></i> {#ConventionList#}</span>
+            <form class="form form-inline float-right" method="post" action="index.php?page=convenio/convenio_listar">
+                <input name="busqueda">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
             <a href="index.php?page=admin/convenio/convenio_crear"
                class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewConvention#}</a>
         </div>
