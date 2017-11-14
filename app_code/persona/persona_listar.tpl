@@ -7,7 +7,7 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <i class="fa fa-align-justify"></i> <strong>{#PeopleList#}</strong>
+            <span class="card-title"><i class="fa fa-align-justify"></i> {#PeopleQuery#}</span>
             <form class="form form-inline float-right" method="post" action="index.php?page=persona/persona_listar">
                 <input name="busqueda">
                 <button><i class="fa fa-search"></i></button>
@@ -28,9 +28,7 @@
                 <tbody>
                 {foreach $personas as $persona}
                     <tr>
-                        <td>
-                            <a href="#">{$persona->nombre} {$persona->apellidos}</a>
-                        </td>
+                        <td><a href="#">{$persona->nombre} {$persona->apellidos}</a></td>
                         <td>{$persona->correo}</td>
                         <td><i class="fa {$persona->rol->icono}"></i></td>
                         <td>{$persona->destino}</td>

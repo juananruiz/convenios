@@ -114,7 +114,7 @@
                         <option value="1"{if $convenio->es_gasto} selected{/if}>Sí</option>
                     </select>
                 </div>
-                <div class="form-group col-sm-12">
+                <div class="form-group col-sm-6">
                     <label for="id_tipo_entidad">{#EntityType#}</label>
                     <select class="form-control" name="id_tipo_entidad">
                         {foreach $tipos_entidades as $tipo_entidad}
@@ -123,6 +123,20 @@
                         {/foreach}
                     </select>
                 </div>
+                {*<div class="form-group col-sm-12">*}
+                {*<label for="id_entidad">{#Entity#}</label>*}
+                {*<select class="form-control" name="id__entidad">*}
+                {*{foreach $entidades as $entidad}*}
+                {*<option value="{$entidad->id}" {if*}
+                {*$convenio->entidad[0]->id == $entidad->id}selected{/if}>{$entidad->nombre}</option>*}
+                {*{/foreach}*}
+                {*</select>*}
+                {*</div>*}
+
+                {*<div class="form-group col-sm-12">*}
+                {*<label for="fichero">{#FileAttachment#}</label>*}
+                {*<input class="form-control" type="file" name="fichero">*}
+                {*</div>*}
             </div>
             <div class="card-footer">
                 <button class="btn btn-sm btn-primary">

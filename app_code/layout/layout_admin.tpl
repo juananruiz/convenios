@@ -42,7 +42,7 @@
             <nav class="sidebar-nav">
 
                 <ul class="nav">
-                    <li class="nav-title">Consulta</li>
+                    <li class="nav-title">{#Query#}</li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=convenio/convenio_listar"><i
                                     class="icon-docs"></i>{#Conventions#}</a>
@@ -57,7 +57,7 @@
                     </li>
 
                     <li class="nav-divider"></li>
-                    <li class="nav-title">Edición</li>
+                    <li class="nav-title">{#Administration#}</li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?page=admin/convenio/convenio_listar"><i
                                     class="icon-docs"></i>{#Conventions#}</a>

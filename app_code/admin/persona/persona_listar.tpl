@@ -7,7 +7,7 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <i class="fa fa-align-justify"></i> <strong>{#PeopleList#}</strong>
+            <span class="card-title"><i class="fa fa-pencil-square-o"></i> {#PeopleAdministration#}</span>
             <a href="index.php?page=admin/persona/persona_crear"
                class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewPerson#}</a>
         </div>

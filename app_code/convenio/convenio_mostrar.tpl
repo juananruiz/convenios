@@ -17,13 +17,15 @@
         <div class="card-body">
             <div class="row section">
                 <div class="col-sm-12">
-                    <h6 class="section-title">Entidades</h6>
+                    <h6 class="section-title">Entidades participantes</h6>
                 </div>
                 <div class="col-sm-4">
                     <div><strong>Universidad de Sevilla</strong></div>
-                    <div><b>{$convenio->responsable->destino}</b></div>
-                    <div><b>Responsable:</b> {$convenio->responsable->nombre} {$convenio->responsable->apellidos}</div>
-                    <div>{$convenio->responsable->correo}</div>
+                    <div><b>{if $convenio->responsable}{$convenio->responsable->destino}{/if}</b></div>
+                    <div>
+                        <b>Responsable:</b> {if $convenio->responsable}{$convenio->responsable->nombre} {$convenio->responsable->apellidos}{/if}
+                    </div>
+                    <div>{if $convenio->responsable}{$convenio->responsable->correo}{/if}</div>
                 </div>
                 {foreach $convenio->entidades as $entidad}
                     <div class="col-sm-4">
@@ -31,7 +33,7 @@
                             <strong>{$entidad->nombre}</strong>
                         </div>
                         <div><b>CIF: </b>{$entidad->cif}</div>
-                        <div>Entidad {$entidad->tipo->nombre}</div>
+                        <div>Entidad {if $entidad->tipo}{$entidad->tipo->nombre}{/if}</div>
                     </div>
                 {/foreach}
             </div>
@@ -40,16 +42,16 @@
                 <div class="col-sm-4">
                     <h6 class="section-title">Detalles</h6>
                     <div><b>{#Period#}:</b> {$convenio->ejercicio}</div>
-                    <div><b>{#Status#}:</b> {$convenio->estado->nombre}</div>
+                    <div><b>{#Status#}:</b> {if $convenio->estado}{$convenio->estado->nombre}{/if}</div>
                     <div><b>{#Renewable#}:</b> {if $convenio->es_prorrogable}Sí{else}No{/if}</div>
                     <div><b>{#SignatureDate#}:</b> {$convenio->fecha_firma}</div>
                     <div><b>{#EndDate#}:</b> {$convenio->fecha_fin}</div>
-                    <div><b>{#Object#}:</b> {$convenio->objeto->nombre}</div>
-                    <div><b>{#Status#}:</b>{$convenio->estado->nombre}</div>
+                    <div><b>{#Object#}:</b> {if $convenio->objeto}{$convenio->objeto->nombre}{/if}</div>
+                    <div><b>{#Status#}:</b>{if $convenio->estado}{$convenio->estado->nombre}{/if}</div>
                 </div>
                 <div class="col-sm-4">
                     <h6 class="section-title">Datos económicos</h6>
-                    <div><b>{#Formalisation#}:</b> {$convenio->forma->nombre}</div>
+                    <div><b>{#Formalisation#}:</b> {if $convenio->forma}{$convenio->forma->nombre}{/if}</div>
                     <div><b>{#Organic#}:</b> {$convenio->organica}</div>
                     <div><b>{#Economic#}:</b> {$convenio->economica}</div>
                     <div><b>{#Amount#}:</b> {$convenio->importe}</div>

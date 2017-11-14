@@ -26,5 +26,6 @@ if (filter_has_var(INPUT_POST, 'id')) {
     $convenio->id_convenio_marco = filter_input(INPUT_POST, 'id_convenio_marco', FILTER_SANITIZE_NUMBER_INT);
     $convenio->save();
 
+
     header("location:index.php?page=convenio/convenio_mostrar&id=$convenio->id");
 }

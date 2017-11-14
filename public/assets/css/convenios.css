@@ -3,6 +3,14 @@ a {
     color: maroon;
 }
 
+label {
+    font-weight: 600;
+}
+
+.tag {
+    border-radius: 0;
+}
+
 span.tag a {
     color: white;
 }
@@ -100,7 +108,7 @@ a.btn-mary {
     background-color: rgba(128, 0, 0, 0.6) !important;
 }
 
-.btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle {
+.btn-primary.active, .btn-primary:active, .show > .btn-primary.dropdown-toggle {
     background: rgba(128, 0, 0, 0.9) none;
     border-color: maroon;
 }

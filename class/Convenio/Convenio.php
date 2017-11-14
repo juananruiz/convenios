@@ -94,38 +94,31 @@ class Convenio extends \ADODB_Active_Record
     public function LoadJoined($condicion)
     {
         if ($this->Load($condicion)) {
-            $estado = new Estado();
-            if ($estado->Load("id = $this->id_estado")) {
-                $this->estado = $estado;
-            }
-
-            $forma = new Forma();
-            if ($forma->Load("id = $this->id_forma")) {
-                $this->forma = $forma;
-            }
-
-            $objeto = new Objeto();
-            if ($objeto->Load("id = $this->id_objeto")) {
-                $this->objeto = $objeto;
-            }
-
             $this->getEntidades();
-
-            $responsable = new Persona();
-            if ($responsable->Load("id = $this->id_responsable")) {
-                $this->responsable = $responsable;
+            if ($this->id_estado) {
+                $this->estado = new Estado();
+                $this->estado->Load("id = $this->id_estado");
+            }
+            if ($this->id_forma) {
+                $this->forma = new Forma();
+                $this->forma->Load("id = $this->id_forma");
             }
 
-            $tipo_entidad = new Tipo();
-            if ($tipo_entidad->Load("id = $this->id_tipo_entidad")) {
-                $this->tipo_entidad = $tipo_entidad;
+            if ($this->id_objeto) {
+                $this->objeto = new Objeto();
+                $this->objeto->Load("id = $this->id_objeto");
             }
-
-            if ($this->id_convenio_marco > 0) {
-                $convenio_marco = new Convenio();
-                if ($convenio_marco->Load("id = $this->id_convenio_marco")) {
-                    $this->convenio_marco = $convenio_marco;
-                }
+            if ($this->id_responsable) {
+                $this->responsable = new Persona();
+                $this->responsable->Load("id = $this->id_responsable");
+            }
+            if ($this->id_tipo_entidad) {
+                $this->tipo_entidad = new Tipo();
+                $this->tipo_entidad->Load("id = $this->id_tipo_entidad");
+            }
+            if ($this->id_convenio_marco) {
+                $this->convenio_marco = new Convenio();
+                $this->convenio_marco->Load("id = $this->id_convenio_marco");
             }
 
             return true;
@@ -140,31 +133,28 @@ class Convenio extends \ADODB_Active_Record
      */
     public function FindJoined($condicion)
     {
-        $registros = $this->Find($condicion);
-        if (is_array($registros)) {
-            foreach ($registros as $registro) {
-                $estado = new Estado();
-                $estado->Load("id = $registro->id_estado");
-                if ($estado->Load("id = $registro->id_estado")) {
-                    $registro->estado = $estado;
+        $convenios = $this->Find($condicion);
+        if (is_array($convenios)) {
+            foreach ($convenios as $convenio) {
+                if ($convenio->id_estado) {
+                    $convenio->estado = new Estado();
+                    $convenio->estado->Load("id = $convenio->id_estado");
                 }
-                $convenio_marco = new Convenio();
-                if ($registro->id_convenio_marco
-                    && $convenio_marco->Load("id = $registro->id_convenio_marco")) {
-                    $registro->convenio_marco = $convenio_marco;
+                if ($convenio->id_convenio_marco) {
+                    $convenio->convenio_marco = new Convenio();
+                    $convenio->convenio_marco->Load("id = $convenio->id_convenio_marco");
                 }
-                $persona = new Persona();
-                if ($persona->Load("id = $registro->id_responsable")) {
-                    $registro->responsable = $persona;
+                if ($convenio->id_responsable) {
+                    $convenio->responsable = new Persona();
+                    $convenio->responsable->Load("id = $convenio->id_responsable");
                 }
-
-                $tipo_entidad = new Tipo();
-                if ($tipo_entidad->Load("id = $registro->id_tipo_entidad")) {
-                    $registro->tipo_entidad = $tipo_entidad;
+                if ($convenio->id_tipo_entidad) {
+                    $convenio->tipo_entidad = new Tipo();
+                    $convenio->tipo_entidad->Load("id = $convenio->id_tipo_entidad");
                 }
             }
 
-            return $registros;
+            return $convenios;
         } else {
 
             return false;

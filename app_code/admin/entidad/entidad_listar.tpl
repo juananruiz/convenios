@@ -7,7 +7,7 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <i class="fa fa-align-justify"></i> <strong>{#EntityList#}</strong>
+            <span class="card-title"><i class="fa fa-pencil-square-o"></i> {#EntitiesAdministration#}</span>
             <a href="index.php?page=admin/entidad/entidad_crear"
                class="btn btn-mary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewEntity#}</a>
         </div>
@@ -27,7 +27,9 @@
                         <td><span class="tag tag-primary"><a
                                         href="index.php?page=admin/entidad/entidad_editar&id={$entidad->id}">{$entidad->id}</a></span>
                         </td>
-                        <td>{$entidad->nombre}</td>
+                        <td>
+                            <a href="index.php?page=admin/entidad/entidad_editar&id={$entidad->id}">{$entidad->nombre}</a>
+                        </td>
                         <td>{$entidad->cif}</td>
                         <td>{$entidad->tipo->nombre}</td>
                     </tr>
