@@ -15,16 +15,16 @@
                 <div class="mb-4">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#datos" role="tab" aria-controls="home"
-                               aria-expanded="true">Datos</a>
+                            <a class="nav-link active" data-toggle="tab" href="#datos" role="tab"
+                               aria-controls="datos">Datos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#ficheros" role="tab" aria-controls="profile"
+                            <a class="nav-link" data-toggle="tab" href="#ficheros" role="tab" aria-controls="ficheros"
                                aria-expanded="false">Ficheros</a>
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="datos" role="tabpanel" aria-expanded="true">
+                        <div class="tab-pane active" id="datos" role="tabpanel">
                             <div class="form-group col-sm-12">
                                 <label for="titulo">{#Title#}</label>
                                 <textarea class="form-control" name="titulo">{$convenio->titulo}</textarea>
