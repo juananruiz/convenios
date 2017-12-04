@@ -25,6 +25,8 @@ class Fichero extends \ADODB_Active_Record
     /** @var array(string) */
     public $extensiones_permitidas;
 
+    /** @var string */
+    public $nombre;
 
     public function __construct()
     {
