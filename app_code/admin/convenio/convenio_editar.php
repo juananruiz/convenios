@@ -7,9 +7,13 @@ use UniSevilla\Convenios\Convenio\Estado;
 use UniSevilla\Convenios\Convenio\Forma;
 use UniSevilla\Convenios\Convenio\Objeto;
 use UniSevilla\Convenios\Entidad\Tipo;
+use UniSevilla\Convenios\Fichero\Fichero;
 
 if (filter_has_var(INPUT_GET, 'id')) {
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    if ($id < 1) {
+        header("location:index.php?page=error/error404&text='Identificador no valido'");
+    }
     $convenio = new Convenio();
     if ($convenio->Load("id=$id")){
         $app->smarty->assign('convenio', $convenio);
@@ -38,12 +42,14 @@ if (filter_has_var(INPUT_GET, 'id')) {
         $responsables = $responsable->Find("id > 0");
         $app->smarty->assign('responsables', $responsables);
 
-
+        $fichero = new Fichero();
+        $ficheros = $fichero->Find("id_contenedor= $id AND tipo_contenedor = 'Convenio'");
+        $app->smarty->assign('ficheros', $ficheros);
     } else {
 
-        header("location:index.php?page=error/error&text='Identificador no valido'");
+        header("location:index.php?page=error/error404&text='Identificador no valido'");
     }
 } else {
 
-    header("location:index.php?page=error/error&text='Se necesita un identificador'");
+    header("location:index.php?page=error/error404&text='Se necesita un identificador'");
 }

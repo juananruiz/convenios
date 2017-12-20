@@ -159,10 +159,11 @@
                     </form>
                 </div>
                 <div class="tab-pane" id="ficheros" role="tabpanel" aria-expanded="false">
-                    <form method="post" action="index.php?page=admin/convenio/fichero_grabar">
-                        <input type="hidden" name="id" value="{$convenio->id}">
+                    <form method="post" enctype="multipart/form-data"
+                          action="index.php?page=admin/convenio/fichero_grabar">
+                        <input type="hidden" name="id_convenio" value="{$convenio->id}">
                         <div class="form-group col-sm-4">
-                            <label for="ficheros">Fichero</label>
+                            <label for="fichero">Fichero</label>
                             <input class="form-control" type="file" id="fichero" name="fichero">
                         </div>
                         <div class="form-group col-sm-4">
@@ -192,21 +193,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td><span class="tag tag-primary"><a href="">234</a></span></td>
-                            <td><a href="">convenio_237_marzo2016.pdf</a></td>
-                            <td>Documento del convenio</td>
-                            <td><i class="fa fa-globe"></i></td>
-                        </tr>
-                        <tr>
-                            <td><span class="tag tag-primary"><a href="">533</a></span></td>
-                            <td><a href="">visto_bueno_rector.pdf</a></td>
-                            <td>Visto bueno del rector</td>
-                            <td><i class="fa fa-lock"></i></td>
-                        </tr>
+                        {foreach $ficheros as $fichero}
+                            <tr>
+                                <td><span class="tag tag-primary">{$fichero->id}</span></td>
+                                <td>
+                                    <a href="index.php?descargar={$smarty.const.DIR_BASE}/{$fichero->tipo_contenedor}/{$fichero->contenedor_id}{$fichero->nombre}">{$fichero->nombre}</a>
+                                </td>
+                                <td>{$fichero->descripcion}</td>
+                                <td><i class="{if $fichero->es_privado}fa fa-lock{else}fa fa-globe{/if}"></i></td>
+                            </tr>
+                        {/foreach}
                         </tbody>
                     </table>
-                    </form>
                 </div>
             </div>
         </div>
