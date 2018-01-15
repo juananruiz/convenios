@@ -17,6 +17,10 @@
                        aria-controls="datos">Datos</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#entidades" role="tab"
+                       aria-controls="entidades">Entidades</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#ficheros" role="tab" aria-controls="ficheros"
                        aria-expanded="false">Ficheros</a>
                 </li>
@@ -158,6 +162,31 @@
                         </div>
                     </form>
                 </div>
+                <div class="tab-pane" id="entidades" role="tabpanel">
+                    {foreach $convenio_entidades as $entidad}
+                        <div class="row section">
+                            {$entidad->entidad->nombre} - {$entidad->entidad->cif}
+                        </div>
+                    {/foreach}
+
+                    <form method="post" action="index.php?page=admin/convenio/convenio_entidad_grabar">
+                        <input type="hidden" name="id_convenio" value="{$convenio->id}">
+                        <div class="form-group col-sm-12">
+                            <label for="entidad_id">{#Entity#}</label>
+                            <select class="form-control" name="id_entidad">
+                                <option value="">{#SelectEntity#}</option>
+                                {foreach $entidades as $entidad}
+                                    <option value="{$entidad->id}">{$entidad->nombre}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button class="formbtn btn-sm btn-primary pull-right">
+                                <i class="fa fa-save"></i> {#Save#}
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 <div class="tab-pane" id="ficheros" role="tabpanel" aria-expanded="false">
                     <form method="post" enctype="multipart/form-data"
                           action="index.php?page=admin/convenio/fichero_grabar">
@@ -197,7 +226,7 @@
                             <tr>
                                 <td><span class="tag tag-primary">{$fichero->id}</span></td>
                                 <td>
-                                    <a href="index.php?descargar={$smarty.const.DIR_BASE}/{$fichero->tipo_contenedor}/{$fichero->contenedor_id}{$fichero->nombre}">{$fichero->nombre}</a>
+                                    <a href="index.php?page=fichero/descargar&id={$fichero->id}">{$fichero->nombre}</a>
                                 </td>
                                 <td>{$fichero->descripcion}</td>
                                 <td><i class="{if $fichero->es_privado}fa fa-lock{else}fa fa-globe{/if}"></i></td>

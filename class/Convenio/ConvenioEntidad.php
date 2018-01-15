@@ -2,6 +2,8 @@
 
 namespace UniSevilla\Convenios\Convenio;
 
+use UniSevilla\Convenios\Entidad\Entidad;
+
 class ConvenioEntidad extends \ADODB_Active_Record
 {
     /** @var  string */
@@ -16,4 +18,20 @@ class ConvenioEntidad extends \ADODB_Active_Record
     /** @var  int */
     public $id_entidad;
 
+    /** @var Entidad */
+    public $entidad;
+
+    /** var $convenio */
+    public $convenio;
+
+    public function FindJoined($condicion)
+    {
+        $convenios_entidades = $this->Find($condicion);
+        foreach ($convenios_entidades as $convenio_entidad) {
+            $convenio_entidad->entidad = new Entidad();
+            $convenio_entidad->entidad->Load("id = $convenio_entidad->id_entidad");
+        }
+
+        return $convenios_entidades;
+    }
 }

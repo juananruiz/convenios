@@ -20,7 +20,7 @@
                     <h6 class="section-title">Entidades participantes</h6>
                 </div>
                 <div class="col-sm-4">
-                    <div><strong>Universidad de Sevilla</strong></div>
+                    <div><b>Universidad de Sevilla</b></div>
                     <div><b>{if $convenio->responsable}{$convenio->responsable->destino}{/if}</b></div>
                     <div>
                         <b>Responsable:</b> {if $convenio->responsable}{$convenio->responsable->nombre} {$convenio->responsable->apellidos}{/if}
@@ -30,7 +30,7 @@
                 {foreach $convenio->entidades as $entidad}
                     <div class="col-sm-4">
                         <div>
-                            <strong>{$entidad->nombre}</strong>
+                            <b>{$entidad->nombre}</b>
                         </div>
                         <div><b>CIF: </b>{$entidad->cif}</div>
                         <div>Entidad {if $entidad->tipo}{$entidad->tipo->nombre}{/if}</div>
@@ -60,10 +60,12 @@
                 </div>
                 <div class="col-sm-4">
                     <h6 class="section-title">Documentos</h6>
-                    <div><i class="fa fa-file-pdf-o"></i> <a href="">Documento del convenio</a>
-                        <div><i class="fa fa-file-pdf-o"></i> <a href="">Documentación anexa económica</a>
+                    {foreach $ficheros as $fichero}
+                        <div>
+                            <i class="fa fa-file-o"></i> <a
+                                    href="index.php?page=fichero/descargar&id={$fichero->id}">{$fichero->descripcion}</a>
                         </div>
-                    </div>
+                    {/foreach}
                 </div>
             </div>
         </div>

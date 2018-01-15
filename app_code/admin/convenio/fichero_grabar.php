@@ -32,9 +32,7 @@ if (filter_has_var(INPUT_POST, 'id_convenio')) {
     $fichero->es_privado = filter_input(INPUT_POST, 'es_privado', FILTER_SANITIZE_STRING);
     $fichero->save();
 
-    $aviso = "se_ha_subido_o_modificado_un_fichero";
-
-    header("location:index.php?page=admin/convenio/convenio_editar&id=$id_convenio&aviso=$aviso");
+    header("location:index.php?page=admin/convenio/convenio_editar&id=$id_convenio#ficheros");
 } else {
     $error = "faltan_parametros";
 

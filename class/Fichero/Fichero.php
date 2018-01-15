@@ -80,4 +80,55 @@ class Fichero extends \ADODB_Active_Record
 
         return $nombre;
     }
+
+    public static function mime($nombre_fichero)
+    {
+        $coincidencias = array();
+        if (preg_match('/\w+$/', $nombre_fichero, $coincidencias)) {
+            $map = array('au' => 'audio/basic',
+                'avi' => 'video/avi',
+                'bmp' => 'image/bmp',
+                'bz2' => 'application/x-bzip2',
+                'css' => 'text/css',
+                'dtd' => 'application/xml-dtd',
+                'doc' => 'application/msword',
+                'gif' => 'image/gif',
+                'gz' => 'application/x-gzip',
+                'hqx' => 'application/mac-binhex40',
+                'html?' => 'text/html',
+                'jar' => 'application/java-archive',
+                'jpe?g' => 'image/jpeg',
+                'js' => 'application/x-javascript',
+                'midi' => 'audio/x-midi',
+                'mp3' => 'audio/mpeg',
+                'mpe?g' => 'video/mpeg',
+                'ogg' => 'audio/vorbis',
+                'pdf' => 'application/pdf',
+                'png' => 'image/png',
+                'ppt' => 'application/vnd.ms-powerpoint',
+                'ps' => 'application/postscript',
+                'qt' => 'video/quicktime',
+                'ram?' => 'audio/x-pn-realaudio',
+                'rdf' => 'application/rdf',
+                'rtf' => 'application/rtf',
+                'sgml?' => 'text/sgml',
+                'sit' => 'application/x-stuffit',
+                'svg' => 'image/svg+xml',
+                'swf' => 'application/x-shockwave-flash',
+                'tgz' => 'application/x-tar',
+                'tiff' => 'image/tiff',
+                'txt' => 'text/plain',
+                'wav' => 'audio/wav',
+                'xls' => 'application/vnd.ms-excel',
+                'xml' => 'application/xml',
+                'zip' => 'application/x-zip-compressed'
+            );
+            foreach ($map as $key => $value) {
+                if (preg_match('/' . $key . '/', strtolower($coincidencias[0]))) {
+                    return $value;
+                }
+            }
+        }
+        return 'application/octet-stream';
+    }
 }
