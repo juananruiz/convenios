@@ -69,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer">
+        <div class="card-footer d-print-none">
             <a class="btn btn-primary btn-sm float-right"
                href="index.php?page=admin/convenio/convenio_editar&id={$convenio->id}"><i class="fa fa-pencil"></i>
                 {#ConventionEdit#}</a>

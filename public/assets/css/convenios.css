@@ -42,12 +42,9 @@ span.tag a {
     height: 50px;
     padding: 0.5rem 1rem;
     margin-right: 0;
-    background-color: #fff;
-    background-image: url("../img/logo_us.png");
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: #fff url("../img/logo_us.png") no-repeat center center;
     background-size: 55px auto;
-    border-bottom: 1px solid #c2cfd6;
+    border-bottom: 0;
 }
 
 header h1 {
@@ -130,4 +127,100 @@ a.btn-mary {
 .card-title {
     font-size: larger;
     font-weight: 500;
+}
+
+@media print {
+    .navbar {
+        display: none !important;
+    }
+
+    .d-print-none {
+        display: none !important;
+    }
+
+    .tag-primary {
+        background: transparent;
+    }
+
+    .sidebar-fixed .app-footer, .sidebar-fixed .main {
+        margin-left: 0;
+    }
+
+    .section-title {
+        margin-top: 2em;
+    }
+}
+
+.table {
+    margin: 0;
+    width: 100%;
+    display: table;
+}
+
+.row {
+    display: table-row;
+    background: #f6f6f6;
+}
+
+.row:nth-of-type(odd) {
+    background: #fcfcfc;
+}
+
+.row.header {
+    font-weight: 900;
+    color: #444;
+    background: #ddd;
+}
+
+.cell {
+    padding: 6px 12px;
+    display: table-cell;
+}
+
+@media (max-width: 800px) {
+    body {
+        line-height: 22px;
+    }
+
+    .table {
+        display: block;
+    }
+
+    .row {
+        padding: 14px 0 7px;
+        display: block;
+    }
+
+    .row.header {
+        padding: 0;
+        height: 6px;
+    }
+
+    .row.header .cell {
+        /* Oculta la cabecera inicial pero no la elimina para accesibilidad */
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .row .cell {
+        margin-bottom: 10px;
+    }
+
+    .row .cell:before {
+        margin-bottom: 3px;
+        content: attr(data-title);
+        min-width: 98px;
+        font-size: 8px;
+        line-height: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #969696;
+        display: block;
+    }
+
+    .cell {
+        padding: 2px 16px;
+        display: block;
+    }
 }
