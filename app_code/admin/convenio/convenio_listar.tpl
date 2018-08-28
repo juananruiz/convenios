@@ -16,34 +16,35 @@
                class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewConvention#}</a>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>{#Id#}</th>
-                    <th>{#Title#}</th>
-                    <th>{#Period#}</th>
-                    <th>{#Status#}</th>
-                    <th nowrap="">{#SignatureDate#}</th>
-                    <th nowrap="">{#EndDate#}</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div class="table">
+                <div class="row header">
+                    <div class="cell">{#Id#}</div>
+                    <div class="cell">{#Period#}</div>
+                    <div class="cell">{#Title#}</div>
+                    <div class="cell">{#Status#}</div>
+                    <div class="cell nowrap">{#SignatureDate#}</div>
+                    <div class="cell nowrap">{#EndDate#}</div>
+                </div>
                 {foreach $convenios as $convenio}
-                    <tr>
-                        <td><span class="tag tag-primary"><a
-                                        href="index.php?page=admin/convenio/convenio_editar&id={$convenio->id}">{$convenio->id}</a></span>
-                        </td>
-                        <td>
+                    <div class="row">
+                        <div class="cell d-print-none">
+                            <span class="tag tag-primary"><a
+                                        href="index.php?page=admin/convenio/convenio_editar&id={$convenio->id}">{$convenio->id}</a>
+                            </span>
+                        </div>
+                        <div class="cell">
                             <a href="index.php?page=admin/convenio/convenio_editar&id={$convenio->id}">{$convenio->titulo}</a>
-                        </td>
-                        <td>{$convenio->ejercicio}</td>
-                        <td>{if $convenio->estado}{$convenio->estado->nombre}{/if}</td>
-                        <td>{$convenio->fecha_firma}</td>
-                        <td>{$convenio->fecha_fin}</td>
-                    </tr>
+                        </div>
+                        <div class="cell" data-title="{#Period#}">{$convenio->ejercicio}</div>
+                        <div class="cell"
+                             data-title="{#Status#}">{if $convenio->estado}{$convenio->estado->nombre}{/if}</div>
+                        <div class="cell nowrap"
+                             data-title="{#SignatureDate#}">{$convenio->fecha_firma|date_format:"d/m/Y"}</div>
+                        <div class="cell nowrap"
+                             data-title="{#EndDate#}">{$convenio->fecha_fin|date_format:"d/m/Y"}</div>
+                    </div>
                 {/foreach}
-                </tbody>
-            </table>
+            </div>
         </div>
     </div>
 {/block}

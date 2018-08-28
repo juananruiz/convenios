@@ -19,6 +19,10 @@ span.tag a {
     background-color: maroon;
 }
 
+.nowrap {
+    white-space: nowrap;
+}
+
 /* Navigation */
 .sidebar {
     display: flex;
@@ -116,6 +120,7 @@ a.btn-mary {
 
 .section-title {
     color: maroon;
+    margin-top: 0.8em;
 }
 
 .section {
@@ -129,28 +134,7 @@ a.btn-mary {
     font-weight: 500;
 }
 
-@media print {
-    .navbar {
-        display: none !important;
-    }
-
-    .d-print-none {
-        display: none !important;
-    }
-
-    .tag-primary {
-        background: transparent;
-    }
-
-    .sidebar-fixed .app-footer, .sidebar-fixed .main {
-        margin-left: 0;
-    }
-
-    .section-title {
-        margin-top: 2em;
-    }
-}
-
+/* No more tables */
 .table {
     margin: 0;
     width: 100%;
@@ -175,6 +159,31 @@ a.btn-mary {
 .cell {
     padding: 6px 12px;
     display: table-cell;
+}
+
+/* Ends No more tables */
+
+/* Printing */
+@media print {
+    .navbar {
+        display: none !important;
+    }
+
+    .d-print-none {
+        display: none !important;
+    }
+
+    .tag-primary {
+        background: transparent;
+    }
+
+    .sidebar-fixed .app-footer, .sidebar-fixed .main {
+        margin-left: 0;
+    }
+
+    .section-title {
+        margin-top: 2em;
+    }
 }
 
 @media (max-width: 800px) {

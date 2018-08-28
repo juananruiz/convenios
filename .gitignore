@@ -6,3 +6,4 @@ prueba*
 var/**/*
 vendor/**/*
 public/upload/*
+private/

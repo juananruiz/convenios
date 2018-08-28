@@ -24,8 +24,8 @@
                     <div class="cell">{#Period#}</div>
                     <div class="cell">{#Title#}</div>
                     <div class="cell">{#Status#}</div>
-                    <div class="cell flex-nowrap">{#SignatureDate#}</div>
-                    <div class="cell flex-nowrap">{#EndDate#}</div>
+                    <div class="cell nowrap">{#SignatureDate#}</div>
+                    <div class="cell nowrap">{#EndDate#}</div>
                 </div>
                 {foreach $convenios as $convenio}
                     <div class="row">
@@ -40,10 +40,10 @@
                         <div class="cell" data-title="{#Period#}">{$convenio->ejercicio}</div>
                         <div class="cell"
                              data-title="{#Status#}">{if $convenio->estado}{$convenio->estado->nombre}{/if}</div>
-                        <div class="cell" data-title="{#SignatureDate#}"
-                             nowrap>{$convenio->fecha_firma|date_format:"d/m/Y"}</div>
-                        <div class="cell" data-title="{#EndDate#}"
-                             nowrap>{$convenio->fecha_fin|date_format:"d/m/Y"}</div>
+                        <div class="cell nowarp"
+                             data-title="{#SignatureDate#}">{$convenio->fecha_firma|date_format:"d/m/Y"}</div>
+                        <div class="cell nowrap"
+                             data-title="{#EndDate#}">{$convenio->fecha_fin|date_format:"d/m/Y"}</div>
                     </div>
                 {/foreach}
             </div>
