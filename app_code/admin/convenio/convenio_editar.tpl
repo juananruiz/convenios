@@ -192,15 +192,15 @@
                           action="index.php?page=admin/convenio/fichero_grabar">
                         <input type="hidden" name="id_convenio" value="{$convenio->id}">
                         <div class="form-group col-sm-4">
-                            <label for="fichero">Fichero</label>
+                            <label for="fichero">{#File#}</label>
                             <input class="form-control" type="file" id="fichero" name="fichero">
                         </div>
                         <div class="form-group col-sm-4">
-                            <label for="descripcion">Descripción</label>
+                            <label for="descripcion">{#Description#}</label>
                             <input class="form-control" name="descripcion" value="">
                         </div>
                         <div class="form-group col-sm-2">
-                            <label for="visibilidad">Visibilidad</label>
+                            <label for="visibilidad">{#Visibility#}</label>
                             <select class="form-control" name="es_privado">
                                 <option value="0">Público</option>
                                 <option value="1">Restringido</option>
@@ -216,9 +216,10 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Visibilidad</th>
+                            <th>{#Name#}/th>
+                            <th>{#Description#}</th>
+                            <th>{#Visibility#}</th>
+                            <th>{#Actions#}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -230,6 +231,8 @@
                                 </td>
                                 <td>{$fichero->descripcion}</td>
                                 <td><i class="{if $fichero->es_privado}fa fa-lock{else}fa fa-globe{/if}"></i></td>
+                                <td><a href="index.php?page=admin/convenio/fichero_borrar&id={$fichero->id}"
+                                       title="{#Delete#}"><i class="fa fa-trash"></i></a></td>
                             </tr>
                         {/foreach}
                         </tbody>
