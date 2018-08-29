@@ -38,6 +38,15 @@ class Fichero extends \ADODB_Active_Record
         $this->extensiones_permitidas = array('doc', 'docx', 'gif', 'jpeg', 'jpg', 'odt', 'pdf', 'png');
     }
 
+    public function borrar()
+    {
+        $classContenedor = $this->tipo_contenedor;
+        $idContenedor = $this->id_contenedor;
+        $ruta_fichero = DIR_BASE . "/private/$classContenedor/$idContenedor/$this->nombre";
+        unlink($ruta_fichero);
+        $this->Delete();
+    }
+
     public function subir($fichero, $contenedor)
     {
         // Comprobar extensión
