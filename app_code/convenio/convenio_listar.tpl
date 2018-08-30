@@ -13,7 +13,7 @@
         <div class="card-header">
             <span class="card-title">{#ConventionsQuery#}</span>
             <form class="form form-inline float-right" method="post" action="index.php?page=convenio/convenio_listar">
-                <input name="busqueda">
+                <input name="search" value="{$search}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>

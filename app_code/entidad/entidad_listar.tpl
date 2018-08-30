@@ -7,9 +7,9 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <span class="card-title"><i class="fa fa-align-justify"></i> {#EntitiesQuery#}</span>
+            <span class="card-title">{#EntitiesQuery#}</span>
             <form class="form form-inline float-right" method="post" action="index.php?page=entidad/entidad_listar">
-                <input name="busqueda">
+                <input name="search" value="{$search}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>

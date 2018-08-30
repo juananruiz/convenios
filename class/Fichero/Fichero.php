@@ -55,9 +55,7 @@ class Fichero extends \ADODB_Active_Record
 
             return false;
         }
-        // Preparar carpeta
-        $ruta = $this->prepararCarpetaDestino($contenedor); //TODO:comprobar que devuelve para capturar errores
-        // Limpiar y setear nombre
+        $ruta = $this->prepararCarpetaDestino($contenedor);
         $this->nombre = $this->setNombre($fichero['name']);
 
         // Mover fichero a ubicación final
@@ -74,7 +72,6 @@ class Fichero extends \ADODB_Active_Record
         $tipo_contenedor = get_class($contenedor);
         $tipo_contenedor = substr($tipo_contenedor, strrpos($tipo_contenedor, '\\') + 1);
         $ruta = DIR_BASE . "/private/$tipo_contenedor/$contenedor->id/";
-
         if (!is_dir($ruta)) {
             mkdir($ruta, 0755, true);
         }

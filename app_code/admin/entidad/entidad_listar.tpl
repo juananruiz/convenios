@@ -8,6 +8,11 @@
     <div class="card">
         <div class="card-header">
             <span class="card-title"><i class="fa fa-pencil-square-o"></i> {#EntitiesAdministration#}</span>
+            <form class="form form-inline float-right" method="post"
+                  action="index.php?page=admin/entidad/entidad_listar">
+                <input name="search" value="{$search}">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
             <a href="index.php?page=admin/entidad/entidad_crear"
                class="btn btn-mary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewEntity#}</a>
         </div>

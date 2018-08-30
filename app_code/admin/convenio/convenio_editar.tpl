@@ -163,16 +163,19 @@
                     </form>
                 </div>
                 <div class="tab-pane" id="entidades" role="tabpanel">
-                    {foreach $convenio_entidades as $entidad}
-                        <div class="row section">
-                            {$entidad->entidad->nombre} - {$entidad->entidad->cif}
-                        </div>
-                    {/foreach}
-
+                    <div class="table">
+                        {foreach $convenio_entidades as $entidad}
+                            <div class="row section">
+                                <div class="cell">{$entidad->entidad->nombre}</div>
+                                <div class="cell">{$entidad->entidad->cif}</div>
+                            </div>
+                        {/foreach}
+                    </div>
+                    <div style="margin-top:2em;"></div>
                     <form method="post" action="index.php?page=admin/convenio/convenio_entidad_grabar">
                         <input type="hidden" name="id_convenio" value="{$convenio->id}">
                         <div class="form-group col-sm-12">
-                            <label for="entidad_id">{#Entity#}</label>
+                            <label for="entidad_id">{#EntityAdd#}</label>
                             <select class="form-control" name="id_entidad">
                                 <option value="">{#SelectEntity#}</option>
                                 {foreach $entidades as $entidad}
@@ -182,7 +185,7 @@
                         </div>
                         <div class="form-actions">
                             <button class="formbtn btn-sm btn-primary pull-right">
-                                <i class="fa fa-save"></i> {#Save#}
+                                <i class="fa fa-save"></i> {#Add#}
                             </button>
                         </div>
                     </form>
@@ -216,7 +219,7 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>{#Name#}/th>
+                            <th>{#Name#}</th>
                             <th>{#Description#}</th>
                             <th>{#Visibility#}</th>
                             <th>{#Actions#}</th>

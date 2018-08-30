@@ -9,7 +9,7 @@
         <div class="card-header">
             <span class="card-title"><i class="fa fa-align-justify"></i> {#PeopleQuery#}</span>
             <form class="form form-inline float-right" method="post" action="index.php?page=persona/persona_listar">
-                <input name="busqueda">
+                <input name="search">
                 <button><i class="fa fa-search"></i></button>
             </form>
         </div>

@@ -7,9 +7,10 @@
 {block name=contenido}
     <div class="card">
         <div class="card-header">
-            <span class="card-title"><i class="fa fa-align-justify"></i> {#ConventionsAdministration#}</span>
-            <form class="form form-inline float-right" method="post" action="index.php?page=convenio/convenio_listar">
-                <input name="busqueda">
+            <span class="card-title"><i class="fa fa-pencil-square-o"></i> {#ConventionsAdministration#}</span>
+            <form class="form form-inline float-right" method="post"
+                  action="index.php?page=admin/convenio/convenio_listar">
+                <input name="search" value="{$search}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
             <a href="index.php?page=admin/convenio/convenio_crear"

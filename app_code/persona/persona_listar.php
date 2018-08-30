@@ -4,9 +4,9 @@ global $app;
 
 use UniSevilla\Convenios\Persona\Persona;
 
-if (filter_has_var(INPUT_POST, "busqueda")) {
-    $busqueda = filter_input(INPUT_POST, "busqueda", FILTER_SANITIZE_STRING);
-    $condicion = "nombre LIKE '%$busqueda%' OR apellidos LIKE '%$busqueda%'";
+if (filter_has_var(INPUT_POST, "search")) {
+    $search = filter_input(INPUT_POST, "search", FILTER_SANITIZE_STRING);
+    $condicion = "nombre LIKE '%$search%' OR apellidos LIKE '%$search%'";
 } else {
     $condicion = "id > 0";
 }

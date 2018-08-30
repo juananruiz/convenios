@@ -26,15 +26,15 @@ if (filter_has_var(INPUT_GET, 'id')) {
         $app->smarty->assign('formas', $formas);
 
         $objeto = new Objeto();
-        $objetos = $objeto->Find("id > 0");
+        $objetos = $objeto->Find("id > 0 ORDER BY nombre");
         $app->smarty->assign('objetos', $objetos);
 
         $estado = new Estado();
-        $estados = $estado->Find("id > 0");
+        $estados = $estado->Find("id > 0 ORDER BY nombre");
         $app->smarty->assign('estados', $estados);
 
         $tipo_entidad = new Tipo();
-        $tipos_entidades = $tipo_entidad->Find("id > 0");
+        $tipos_entidades = $tipo_entidad->Find("id > 0 ORDER BY nombre");
         $app->smarty->assign('tipos_entidades', $tipos_entidades);
 
         $convenio_entidad = new ConvenioEntidad();
@@ -42,7 +42,7 @@ if (filter_has_var(INPUT_GET, 'id')) {
         $app->smarty->assign('convenio_entidades', $convenio_entidades);
 
         $entidad = new Entidad();
-        $entidades = $entidad->FindJoined("id > 0");
+        $entidades = $entidad->FindJoined("id > 0 ORDER BY nombre");
         $app->smarty->assign('entidades', $entidades);
 
         $marco = new Convenio();

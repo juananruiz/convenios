@@ -20,7 +20,7 @@ if (filter_has_var(INPUT_POST, 'id_convenio')) {
         $fichero->tipo_contenedor = 'Convenio';
         $fichero->id_contenedor = $id_convenio;
         // Gestiona la subida del fichero al servidor
-        $fichero_subido = $_FILES['fichero']; // TODO: comprobar esto
+        $fichero_subido = $_FILES['fichero'];
         if (!$fichero->subir($fichero_subido, $convenio)) {
             $error = "no_se_ha_podido_subir_el_fichero";
 
