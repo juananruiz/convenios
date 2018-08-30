@@ -7,7 +7,7 @@
 {block name=contenido}
     <div class="card">
     <div class="card-header">
-        <span class="card-title">{#ConventionEdit#}</span>
+        <span class="card-title">{#ConventionEdit#} · {$convenio->titulo|truncate:200}</span>
     </div>
     <div class="card-block">
         <div class="mb-4">
@@ -163,6 +163,7 @@
                     </form>
                 </div>
                 <div class="tab-pane" id="entidades" role="tabpanel">
+                    <strong>Entidades participantes</strong>
                     <div class="table">
                         {foreach $convenio_entidades as $entidad}
                             <div class="row section">
