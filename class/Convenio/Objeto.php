@@ -13,6 +13,6 @@ class Objeto extends \ADODB_Active_Record
     /** @var  string */
     public $nombre;
 
-    /** @var \DateTime */
+    /** @var string */
     public $created_at;
 }

@@ -48,7 +48,7 @@ class Permiso extends \ADODB_Active_Record
 
     /**
      * @param string $condicion
-     * @return bool
+     * @return array|bool
      */
     public function FindJoined($condicion)
     {

@@ -24,10 +24,10 @@ class Persona extends \ADODB_Active_Record
     /** @var string */
     public $correo;
 
-    /** @var \DateTime */
+    /** @var string */
     public $fecha_alta;
 
-    /** @var \DateTime */
+    /** @var string */
     public $fecha_modificacion;
 
     /** @var int */
@@ -42,7 +42,7 @@ class Persona extends \ADODB_Active_Record
     /** @var string */
     public $sexo;
 
-    /** @var \DateTime */
+    /** @var string */
     public $ultimo_inicio_sesion;
 
     /** @var string */
@@ -54,6 +54,11 @@ class Persona extends \ADODB_Active_Record
     /** @var string */
     public $nif;
 
+    /** @var Entidad */
+    private $entidad;
+
+    /** @var Rol */
+    private $rol;
 
     /**
      * @param string $condicion
@@ -92,5 +97,4 @@ class Persona extends \ADODB_Active_Record
 
         return false;
     }
-
 }

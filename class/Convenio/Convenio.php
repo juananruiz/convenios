@@ -18,7 +18,7 @@ class Convenio extends \ADODB_Active_Record
     /** @var Convenio */
     public $convenio_marco;
 
-    /** @var \DateTime */
+    /** @var string */
     public $created_at;
 
     /** @var  string */
@@ -42,10 +42,10 @@ class Convenio extends \ADODB_Active_Record
     /** @var Estado */
     public $estado;
 
-    /** @var  \DateTime */
+    /** @var  string */
     public $fecha_fin;
 
-    /** @var  \DateTime */
+    /** @var  string */
     public $fecha_firma;
 
     /** @var Forma */
