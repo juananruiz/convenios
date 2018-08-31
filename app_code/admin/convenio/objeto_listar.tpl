@@ -9,7 +9,7 @@
         <div class="card-header">
             <span class="card-title"><i class="fa fa-align-justify"></i> {#ConventionObjectList#}</span>
             <a href="index.php?page=admin/convenio/objeto_crear"
-                    class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewObject#}
+               class="btn btn-primary btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp; {#NewObject#}
             </a>
         </div>
         <div class="card-body">

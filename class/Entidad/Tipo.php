@@ -13,5 +13,5 @@ class Tipo extends \ADODB_Active_Record
 
     /** @var  int */
     public $id;
-
 }
+

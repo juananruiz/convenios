@@ -18,7 +18,7 @@ if (filter_has_var(INPUT_GET, 'id')) {
         header("location:index.php?page=error/error404&text='Identificador no valido'");
     }
     $convenio = new Convenio();
-    if ($convenio->Load("id=$id")){
+    if ($convenio->Load("id=$id")) {
         $app->smarty->assign('convenio', $convenio);
 
         $forma = new Forma();

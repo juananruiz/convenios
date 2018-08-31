@@ -70,12 +70,13 @@ class Permiso extends \ADODB_Active_Record
             return $registros;
         } else {
 
-        return false;
+            return false;
         }
     }
+
     public function Permiso($condicion)
     {
-        if ($this->Load($condicion)){
+        if ($this->Load($condicion)) {
             return true;
         } else {
             return false;
