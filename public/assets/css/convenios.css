@@ -184,6 +184,10 @@ a.btn-mary {
     .section-title {
         margin-top: 0.5em;
     }
+
+    .header-fixed .app-body {
+        margin-top: 5px;
+    }
 }
 
 @media (max-width: 800px) {
